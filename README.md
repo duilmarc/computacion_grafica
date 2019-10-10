@@ -15,7 +15,7 @@
 
 #### Imagen
 
-![Imagen de la gràfica de la recta con punto medio](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/algoritmo_incremental.png)
+![Imagen de la gràfica de la recta con algoritmo incremental](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/algoritmo_incremental.png)
 
 #### Codigo
 
