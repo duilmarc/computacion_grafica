@@ -1,6 +1,9 @@
 # RESULTADOS TRABAJO EN COMPUTACION GRAFICA
 
 ## Tabla de contenido
+- [Algoritmo Incremental](#algoritmo-incremental).
+  - [Imagen](#imagen).
+  - [Codigo](#codigo).
 - [Recta Punto Medio](#grafica-de-la-recta-con-punto-medio).
   - [Imagen](#imagen).
   - [Codigo](#codigo).
@@ -8,13 +11,39 @@
 
   
   
-### Grafica de la recta normal 
+### Algoritmo incremental
+
+#### Imagen
+
+![Imagen de la gràfica de la recta con punto medio](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/algoritmo_incremental.png)
+
+#### Codigo
+
+```
+	float x, y;
+	float a;
+	int valor;
+
+	a= ( y_f - y_0 ) / ( x_f - x_0 );
+
+	glColor3f( 0.5 , 0.5 , 0.5);
+	glBegin(GL_POINTS);
+	for ( x = x_0; x <= x_f ;)
+	{	
+		y = ( y_0 + a * ( x- x_0));
+		glVertex2f(x, y);
+		x  = x + 0.01;
+		cout << "x: "<< x <<" , y: " << y << endl;
+	}
+	glEnd();
+
+```
 
 
 ### Grafica de la recta con punto medio 
 
-### Imagen
-![Aquí la descripción de la imagen por si no carga](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/linea_recta.png)
+#### Imagen
+![Imagen de la gràfica de la recta con punto medio](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/linea_recta.png)
 
 #### Codigo
 
