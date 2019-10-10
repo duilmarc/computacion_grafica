@@ -9,8 +9,7 @@ using namespace std;
 void init(void); 
 
 void display(void); 
-
-void reshape(int,int); 
+void draw_recta_punto_medio(float,float,float,float);
 
 int main(int argc, char** argv) 
 { 
@@ -22,7 +21,6 @@ int main(int argc, char** argv)
 	glutCreateWindow(argv[0]); 
 	init(); 
 	glutDisplayFunc(display); 
-	glutReshapeFunc(reshape); 
 	glutMainLoop(); 
 	return 0; 
 } 
@@ -31,16 +29,15 @@ void init(void)
 { 
 	glClearColor(0.0,0.0,0.0,0.0);  //parametros: rojo, amarillo, azul, el cuarto es el parametro alpha 
 	glShadeModel(GL_FLAT); 
-} 
- 
-void display(void) 
-{ 
-	float x_0 = 1, y_0 = 2, x_f= 10, y_f= 10;
+	glMatrixMode(GL_PROJECTION); 
+	glLoadIdentity(); 
+	gluOrtho2D(-10.0,20.0,-10.0,20); 
 
+} 
+
+void draw_recta_punto_medio(float x_0, float y_0, float x_f, float y_f)
+{
 	GLfloat x,y,dx,dy,incrementoE,incrementoNE,d,inc_x,inc_y; 
-	glClear(GL_COLOR_BUFFER_BIT); 
-	glPushMatrix();// salva el estado actual de la matriz 
-	
 	x = x_0;
 	y = y_0;
 
@@ -82,16 +79,16 @@ void display(void)
 			glVertex2f(x, y);
 		}
 	glEnd();
+
+}
+void display(void) 
+{ 
+	
+	glClear(GL_COLOR_BUFFER_BIT); 
+	glPushMatrix();// salva el estado actual de la matriz 
+	draw_recta_punto_medio(1,1,4,6);
 	glPopMatrix();   // reecupera el estado del matriz 
 	glFlush(); 
 } 
 
-void reshape(int w, int h) 
-{ 
-	glViewport(0,0,(GLsizei)w, (GLsizei)h); 
-	glMatrixMode(GL_PROJECTION); 
-	glLoadIdentity(); 
-	glOrtho(-10.0,10.0,-10.0,10,-10.0,10.0); 
-	glMatrixMode(GL_MODELVIEW); 
-	glLoadIdentity(); 
-} 
+
