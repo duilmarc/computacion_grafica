@@ -11,8 +11,8 @@
   - [Imagen](#imagen-3).
   - [Codigo](#codigo-3).
 - [Poligonos](#graficando-poligono).
-  - [Imagen](#imagen-3).
-  - [Codigo](#codigo-3).
+  - [Imagen](#imagen-4).
+  - [Codigo](#codigo-4).
 
   
 
