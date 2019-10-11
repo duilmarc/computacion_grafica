@@ -10,7 +10,7 @@
 - [Circunferencia](#circunferencia-con-punto-medio).
   - [Imagen](#imagen).
   - [Codigo](#codigo).
-- [Circunferencia](#graficando-poligonos).
+- [Poligonos](#graficando-poligono).
   - [Imagen](#imagen).
   - [Codigo](#codigo).
 
