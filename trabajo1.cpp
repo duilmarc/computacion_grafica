@@ -3,13 +3,15 @@
 #include <math.h> 
 #include <GL/glut.h> 
 #include <cmath>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 void init(void); 
 
 void display(void); 
-
+void draw_recta_punto_medio(float,float,float,float);
 
 int main(int argc, char** argv) 
 { 
@@ -157,6 +159,36 @@ void circunferencia(int radio)
     }
     glEnd();
 }
+
+
+
+void dibujar_poligono(int n_lados, float r)
+{
+    float pasos, angulo, posi_x,posi_y, posn_x, posn_y;
+    pasos = 2 * 3.14159 / n_lados;
+    angulo = 0.0;
+    posi_x = 0.0;
+    posi_y = r;
+    posn_x = 0.0;
+    posn_y = 0.0;
+	glColor3f( 0.5 , 0.5 , 0.5);
+    glBegin(GL_LINES);
+    for(int i=0; i<n_lados; ++i) {
+            angulo += pasos;
+            posn_x = r * sin(angulo);
+            posn_y = r * cos(angulo);
+            glVertex2f(posi_x, posi_y);
+            glVertex2f(posn_x, posn_y);
+            cout<<"posicion inicial x: " <<posi_x << " posicion inicial y: "<< posi_y<< endl;
+            cout<<"posicion final x: " <<posn_x << " posicion final y: "<< posn_y<< endl;
+            posi_x = posn_x;
+            posi_y = posn_y;
+    }
+    glEnd();
+
+}
+
+
 void display(void) 
 { 
 	
@@ -164,7 +196,8 @@ void display(void)
 	glPushMatrix();// salva el estado actual de la matriz 
 	//incremental_basico(1,1,4,10);
 	//draw_recta_punto_medio(4,10,7,19);
-	circunferencia(4);
+	//circunferencia(4);
+	dibujar_poligono(5,4);
 	glPopMatrix();   // reecupera el estado del matriz 
 	glFlush(); 
 } 
