@@ -9,7 +9,7 @@ using namespace std;
 void init(void); 
 
 void display(void); 
-void draw_recta_punto_medio(float,float,float,float);
+
 
 int main(int argc, char** argv) 
 { 
@@ -101,14 +101,70 @@ void draw_recta_punto_medio(float x_0, float y_0, float x_f, float y_f)
 	glEnd();
 
 }
+
+// restantes por simetria
+void puntos_circulo(float x,float y)
+{
+    
+    glVertex2f(x,-y);
+    glVertex2f(-x,y);
+    glVertex2f(-x,-y);
+    glVertex2f(y,x);
+    glVertex2f(y,-x);
+    glVertex2f(-y,x);
+    glVertex2f(-y,-x);
+
+}
+
+void circunferencia(int radio)
+{
+	GLfloat x,y,d, x_inc,y_inc; 
+
+    x = 0;
+    y = radio;
+    d = 1 - radio;
+
+    int deltaE = 3;
+    int deltaSE = -2*radio+5;
+
+    x_inc = 1;
+    y_inc = 1;
+
+    glColor3f( 0.5 , 0.5 , 0.5);
+    glBegin(GL_POINTS);
+    glVertex2f(x,y);
+    puntos_circulo(x,y);
+    while (y > x)
+    {
+        if (d < 0)
+        {
+            d += deltaE;
+            deltaE +=x_inc*2;
+            deltaSE +=x_inc*2;
+        }
+        else
+        {
+	        d += deltaSE;
+	        deltaE +=x_inc*2;
+	        deltaSE +=x_inc*4;
+	        y -= y_inc;
+        }
+        x += x_inc;
+        cout<<"x: "<<x<<" y: "<<y<< endl;
+        glVertex2f(x,y);
+        puntos_circulo(x,y);
+
+    }
+    glEnd();
+}
 void display(void) 
 { 
 	
 	glClear(GL_COLOR_BUFFER_BIT); 
 	glPushMatrix();// salva el estado actual de la matriz 
-	incremental_basico(1,1,4,10);
+	//incremental_basico(1,1,4,10);
 	//draw_recta_punto_medio(4,10,7,19);
-
+	circunferencia(4);
 	glPopMatrix();   // reecupera el estado del matriz 
 	glFlush(); 
 } 
