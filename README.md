@@ -10,6 +10,9 @@
 - [Circunferencia](#circunferencia-con-punto-medio).
   - [Imagen](#imagen).
   - [Codigo](#codigo).
+- [Circunferencia](#graficando-poligonos).
+  - [Imagen](#imagen).
+  - [Codigo](#codigo).
 
   
 
@@ -161,5 +164,37 @@ void puntos_circulo(float x,float y)
 
 
 ```
+### Graficando poligono
 
+#### Imagen
+![Imagen de la gràfica del poligono](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/poligono.png)
 
+#### Codigo
+```
+void dibujar_poligono(int n_lados, float r)
+{
+	float pasos, angulo, posi_x,posi_y, posn_x, posn_y;
+    pasos = 2 * 3.14159 / n_lados;
+    angulo = 0.0;
+    posi_x = 0.0;
+    posi_y = r;
+    posn_x = 0.0;
+    posn_y = 0.0;
+	glColor3f( 0.5 , 0.5 , 0.5);
+    glBegin(GL_LINES);
+    for(int i=0; i<n_lados; ++i) {
+            angulo += pasos;
+            posn_x = r * sin(angulo);
+            posn_y = r * cos(angulo);
+            glVertex2f(posi_x, posi_y);
+            glVertex2f(posn_x, posn_y);
+            cout<<"posicion inicial x: " <<posi_x << " posicion inicial y: "<< posi_y<< endl;
+            cout<<"posicion final x: " <<posn_x << " posicion final y: "<< posn_y<< endl;
+            posi_x = posn_x;
+            posi_y = posn_y;
+    }
+    glEnd();
+
+}
+
+```
