@@ -7,6 +7,10 @@
 - [Recta Punto Medio](#grafica-de-la-recta-con-punto-medio).
   - [Imagen](#imagen).
   - [Codigo](#codigo).
+- [Circunferencia](#circunferencia-con-punto-medio).
+  - [Imagen](#imagen).
+  - [Codigo](#codigo).
+
   
 
   
@@ -93,5 +97,69 @@
 	glEnd();
 		
 		```
+### Circunferencia con punto medio
+
+#### Imagen
+![Imagen de la gràfica de la circunferencia con punto medio](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/circunferencia.png)
+
+#### Codigo
+```
+void circunferencia(int radio)
+{
+    GLfloat x,y,d, x_inc,y_inc; 
+
+    x = 0;
+    y = radio;
+    d = 1 - radio;
+
+    int deltaE = 3;
+    int deltaSE = -2*radio+5;
+
+    x_inc = 1;
+    y_inc = 1;
+
+    glColor3f( 0.5 , 0.5 , 0.5);
+    glBegin(GL_POINTS);
+    glVertex2f(x,y);
+    puntos_circulo(x,y);
+    while (y > x)
+    {
+        if (d < 0)
+        {
+            d += deltaE;
+            deltaE +=x_inc*2;
+            deltaSE +=x_inc*2;
+        }
+        else
+        {
+	        d += deltaSE;
+	        deltaE +=x_inc*2;
+	        deltaSE +=x_inc*4;
+	        y -= y_inc;
+        }
+        x += x_inc;
+        cout<<"x: "<<x<<" y: "<<y<< endl;
+        glVertex2f(x,y);
+        puntos_circulo(x,y);
+
+    }
+    glEnd();
+}
+
+void puntos_circulo(float x,float y)
+{
+    
+    glVertex2f(x,-y);
+    glVertex2f(-x,y);
+    glVertex2f(-x,-y);
+    glVertex2f(y,x);
+    glVertex2f(y,-x);
+    glVertex2f(-y,x);
+    glVertex2f(-y,-x);
+
+}
+
+
+```
 
 
