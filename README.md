@@ -2,17 +2,17 @@
 
 ## Tabla de contenido
 - [Algoritmo Incremental](#algoritmo-incremental).
-  - [Imagen](#imagen-1).
-  - [Codigo](#codigo-1).
+  - [Imagen]
+  - [Codigo]
 - [Recta Punto Medio](#grafica-de-la-recta-con-punto-medio).
-  - [Imagen](#imagen-2).
-  - [Codigo](#codigo-2).
+  - [Imagen]
+  - [Codigo]
 - [Circunferencia](#circunferencia-con-punto-medio).
-  - [Imagen](#imagen-3).
-  - [Codigo](#codigo-3).
+  - [Imagen]
+  - [Codigo]
 - [Poligonos](#graficando-poligono).
-  - [Imagen](#imagen-4).
-  - [Codigo](#codigo-4).
+  - [Imagen]
+  - [Codigo]
 
   
 
