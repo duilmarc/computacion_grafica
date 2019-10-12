@@ -88,8 +88,6 @@ void draw_recta_punto_medio(float x_0, float y_0, float x_f, float y_f)
 			{
 				d = d + incrementoE;
 				x = x + inc_x;
-				y = y + inc_y;
-
 			}
 			else
 			{	
