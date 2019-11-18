@@ -202,7 +202,7 @@ void dibujar_poligono(int n_lados, float r)
 
 ### Movimiento de Cámara
 
-![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-04.png)
+![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/inicial.png)
 ```
 	glPushMatrix();// Draw next arm axis.
 	glColor3f(0.0, 1.0, 1.0); // give it a color
@@ -222,7 +222,7 @@ void dibujar_poligono(int n_lados, float r)
 	
 ```
 
-![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-14.png)
+![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/mover.png)
 
 ```
 bool tecla_presionado;
@@ -348,7 +348,7 @@ void display(void) {
 }
 
 ```
-![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-09.png)
+![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/traslado.png)
 ```
 
 static int estado_vista = 1;
