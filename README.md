@@ -348,7 +348,7 @@ void display(void) {
 }
 
 ```
-![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/traslado.png)
+![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/rotacion.png)
 ```
 
 static int estado_vista = 1;
