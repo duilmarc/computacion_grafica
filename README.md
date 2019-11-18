@@ -202,13 +202,162 @@ void dibujar_poligono(int n_lados, float r)
 
 ### Movimiento de Cámara
 
-![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-04.png)
+![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-04.png)
 ```
+	glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(2.0, 2.0, 0.0);
+	glutSolidCube(1.0);
+
+    glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(-2.0, -2.0, 0.5);
+	glutSolidCube(1.0);
+
+
+	glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(0.0, -2.0, 5);
+	glutSolidCube(1.0);
+	
 ```
-![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-14.png)
+![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-14.png)
 ```
+
+bool tecla_presionado;
+double mouse_x_anterior, mouse_y_anterior, actual_mouse_x, actual_mouse_y;
+
+void tecla(int tecla, int x, int y) {
+	switch (tecla)
+	{
+	case GLUT_KEY_RIGHT:
+		if (xi < 10)
+			xi += 0.5;
+		break;
+
+	case GLUT_KEY_LEFT:
+		if (xi > -10)
+			xi -= 0.5;
+		break;
+
+	case GLUT_KEY_UP:
+		if (yi < 10)
+			yi += 0.5;
+		break;
+
+	case GLUT_KEY_DOWN:
+		if (yi > -10)
+			yi -= 0.5;
+		break;
+
+	default:
+		break;
+	}
+
+
+}
+
+void mouse(int mouse, int state, int x, int y)
+{
+
+	if (mouse == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		actual_mouse_x= x;
+		actual_mouse_y = y;
+		tecla_presionado = true;
+	}
+	else if (mouse == GLUT_LEFT_BUTTON && state == GLUT_UP)
+	{
+		mouse_x_anterior = x;
+		mouse_y_anterior = y;
+		tecla_presionado = false;
+	}
+
+}
+
+
+void display(void) {
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glLoadIdentity();
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-8.0, 8.0, 8.0, -8.0, 1.0, 30.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glTranslatef(xi, yi, 0);
+
+	// Turn Perspective mode on/off
+	if (estado_vista == 0)
+	{
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluPerspective(60.0, 1, 1.0, 30.0);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+	}
+
+	if (tecla_presionado) {
+
+		double x = mouse_x_anterior - actual_mouse_x;
+		double y = mouse_y_anterior - actual_mouse_y;
+
+		double lenVector = sqrt(pow(x, 2) + pow(y, 2));
+
+		if (lenVector != 0) {
+			xi -= (x / lenVector) * 0.1;
+			yi -= (y / lenVector) * 0.1;
+		}
+		cout << xi << "\t" << yi << endl;
+
+		gluLookAt(0, 0, -5, xi, yi, 0, 0, 1, 0);
+	}
+	
+
+	glPushMatrix();
+
+	glTranslatef(0, 0, -14);
+	glRotatef(180, 1.0, 0.0, 0.0);
+
+
+	glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(2.0, 2.0, 0.0);
+	glutSolidCube(1.0);
+
+    glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(-2.0, -2.0, 0.5);
+	glutSolidCube(1.0);
+
+
+	glPushMatrix();// Draw next arm axis.
+	glColor3f(0.0, 1.0, 1.0); // give it a color
+	glTranslatef(0.0, -2.0, 5);
+	glutSolidCube(1.0);
+	
+
+	glEnd();
+	glPopMatrix(); // Cierra la matriz
+	glFlush();
+	glutSwapBuffers();
+
+
+}
+
+
+![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-09.png)
 ```
-![Traslacion de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-09.png)
-```
+
+static int estado_vista = 1;
+
+void keyboard(unsigned char tecla, int x, int y) 
+{
+	if (tecla == 'c' || tecla == 'C') {
+		estado_vista = abs(estado_vista - 1);
+		cout << estado_vista << endl;
+	}
+}
 ```
 
