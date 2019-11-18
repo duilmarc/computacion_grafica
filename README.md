@@ -221,9 +221,10 @@ void dibujar_poligono(int n_lados, float r)
 	glutSolidCube(1.0);
 	
 ```
-![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-14.png)
-```
 
+![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-14.png)
+
+```
 bool tecla_presionado;
 double mouse_x_anterior, mouse_y_anterior, actual_mouse_x, actual_mouse_y;
 
@@ -346,7 +347,7 @@ void display(void) {
 
 }
 
-
+```
 ![Traslacion de perspectiva camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17_23-06-09.png)
 ```
 
