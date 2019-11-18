@@ -13,7 +13,7 @@
 - [Poligonos](#graficando-poligono).
   - Imagen.
   - Codigo.
-- [Movimiento Camara](#movimiento-camara)
+- [Movimiento Camara](#movimiento-camara).
 
   
 
@@ -202,13 +202,13 @@ void dibujar_poligono(int n_lados, float r)
 
 ### Movimiento de Cámara
 
-![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura de pantalla de 2019-11-17 23-06-04.png)
+![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-04.png)
 ```
 ```
-![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura de pantalla de 2019-11-17 23-06-14.png)
+![Movimiento de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-14.png)
 ```
 ```
-![Traslacion de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura de pantalla de 2019-11-17 23-06-09.png)
+![Traslacion de camara](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/Captura_de_pantalla_de_2019-11-17 23-06-09.png)
 ```
 ```
 
