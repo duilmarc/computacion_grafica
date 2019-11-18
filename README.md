@@ -200,7 +200,7 @@ void dibujar_poligono(int n_lados, float r)
 
 ```
 
-### Movimiento de Cámara
+### Movimiento Camara
 
 ![Imagen de los objetos](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/inicial.png)
 ```
