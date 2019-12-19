@@ -60,7 +60,7 @@ Punto punto_beizer(Punto PT[], double t) {
             P.y = P.y + binomial_coff((float)(clicks - 1), (float)i) * pow(t, (double)i) * pow((1 - t), (clicks - 1 - i)) * PT[i].y;
         }
         return P;
-    }
+}
 
 
 void insertar_por_mouse(int button, int state, int x, int y) {

@@ -15,6 +15,9 @@
   - Codigo.
 - [Movimiento Camara](#movimiento-camara).
 - [Curva Bezier](#bezier)
+  - Imagen
+  - Formula Generalizada de Beizer
+  - Codigo.
 
    
   
@@ -362,3 +365,24 @@ void keyboard(unsigned char tecla, int x, int y)
 ```
 
 ### Bezier
+
+#### Codigo
+```
+Punto punto_beizer(Punto PT[], double t) {
+        Punto P;
+        P.x = 0; P.y = 0;   
+        for (int i = 0; i<clicks; i++)
+        {
+            P.x = P.x + binomial_coff((float)(clicks - 1), (float)i) * pow(t, (double)i) * pow((1 - t), (clicks - 1 - i)) * PT[i].x;
+            P.y = P.y + binomial_coff((float)(clicks - 1), (float)i) * pow(t, (double)i) * pow((1 - t), (clicks - 1 - i)) * PT[i].y;
+        }
+        return P;
+}
+
+
+```
+
+#### Formula Generalizada de la curva de Beizer
+
+![Imagen de la gràfica de la recta con algoritmo incremental](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/formulabezier.png)
+#### Imagen
