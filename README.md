@@ -15,10 +15,10 @@
   - Codigo.
 - [Movimiento Camara](#movimiento-camara).
 - [Curva Bezier](#bezier)
-  - Imagen
   - Formula Generalizada de Beizer
+  - Imagen
   - Codigo.
-
+  - Ejecutable y Codigo
    
   
 ### Algoritmo incremental
@@ -366,8 +366,39 @@ void keyboard(unsigned char tecla, int x, int y)
 
 ### Bezier
 
+#### Formula Generalizada de la curva de Beizer
+
+![Imagen de la gràfica de la recta con algoritmo incremental](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/formulabezier.png)
+
+
 #### Codigo
 ```
+// Definimos la estructura de punto
+
+class Punto {
+public:
+    float x, y;
+    void setxy(float x2, float y2)
+    {
+        x = x2; y = y2;
+    }
+    const Punto & operator=(const Punto &rPunto)
+    {
+        x = rPunto.x;
+        y = rPunto.y;
+        return *this;
+    }
+
+};
+
+// Definimos la funcion de la binomial
+float binomial_coff(float n,float k)
+{
+    float ans;
+    ans = factorial(n) / (factorial(k)*factorial(n-k));
+    return ans;
+}
+
 Punto punto_beizer(Punto PT[], double t) {
         Punto P;
         P.x = 0; P.y = 0;   
@@ -382,7 +413,12 @@ Punto punto_beizer(Punto PT[], double t) {
 
 ```
 
-#### Formula Generalizada de la curva de Beizer
+#### Imagen de Resultados
 
-![Imagen de la gràfica de la recta con algoritmo incremental](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/formulabezier.png)
-#### Imagen
+![Imagen de la gràfica de la recta con algoritmo incremental](https://raw.githubusercontent.com/duilmarc/computacion_grafica/master/bezier_resultados.png)
+
+#### Ejecutable y Codigo
+
+Codigo del programa y ejecutable del programa en la carpeta trabajospracticos3Fase 
+Para compilar g++ bezierr.cpp -o bezier -lglut -lGLU -lGL
+Ejecutar ./bezier
