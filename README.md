@@ -14,10 +14,9 @@
   - Imagen.
   - Codigo.
 - [Movimiento Camara](#movimiento-camara).
+- [Curva Bezier](#bezier)
 
-  
-
-  
+   
   
 ### Algoritmo incremental
 
@@ -362,3 +361,4 @@ void keyboard(unsigned char tecla, int x, int y)
 }
 ```
 
+### Bezier
