@@ -47,8 +47,8 @@ struct Nodo
 class Quadtree 
 { 
     // Contiene el boundary del arbol
-    Punto topLeft; // importante para graficar los limites del boundary
-    Punto botRight; // importante para graficar las limites del boundary
+    Punto topLeft; // delimitacion
+    Punto botRight; // delimitacion
   
     // Detalles del Nodo
     Nodo *n; 
